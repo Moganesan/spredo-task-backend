@@ -1,0 +1,35 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Spredo Task",
+    "description": "API for fetching coins data",
+    "version": "1.0.0"
+  },
+  "host": "127.0.0.1:5000",
+  "schemes": ["http"],
+  "paths": {
+    "/projects": {
+      "get": {
+        "summary": "Get Filtered Cryptocurrency Projects",
+        "description": "Retrieve filtered cryptocurrency data based on search and sorting criteria.",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "type": "string",
+            "description": "Search term for filtering cryptocurrencies by name. e.g., 'eth' for 'Ethereum'"
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "type": "string",
+            "description": "Sort by either 'market_cap' or 'volume'."
+          }
+        ],
+        "responses": {
+          "200": []
+        }
+      }
+    }
+  }
+}

@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 import requests
 from flask_swagger_ui import get_swaggerui_blueprint
 from flask_cors import CORS
+from functools import lru_cache
 
 app = Flask(__name__)
 
@@ -22,6 +23,7 @@ app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
 
 
 # Function to fetch and filter coins data
+@lru_cache(maxsize=1)  # Cache the API response
 def fetch_and_filter_crypto_data(search=None, sort_by=None):
     """
     Get Filtered Cryptocurrency Projects
